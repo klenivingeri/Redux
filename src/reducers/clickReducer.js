@@ -1,0 +1,18 @@
+import { CLICK_UPDATE_VALUE } from '../constantes'
+
+const initialState = {
+  newValue: 'Atualizando via Redux'
+};
+
+export const clickReducer = (state = initialState, action) =>{
+  console.log(state)
+  switch(action.type){
+    case CLICK_UPDATE_VALUE:
+      return {
+        ...state,
+        newValue: action.newValue
+      };
+      default:
+        return state;
+  }
+};

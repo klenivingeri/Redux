@@ -1,0 +1,2 @@
+export const CLICK_UPDATE_VALUE = 'CLICK_UPDATE_VALUE'
+export const GET_DIGIMON = 'GET_DIGIMON'
