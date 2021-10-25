@@ -1,4 +1,4 @@
-import { SELECT_ITEMS, DIGIMONS } from './constants'
+import { SELECT_ITEMS, DIGIMONS, INITIAL_STATE } from './constants'
 
 export const initialState = {
   itemsMenu: [],
