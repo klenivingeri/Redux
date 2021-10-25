@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { getSearchByDateOptions } from './actions'
+import { getSearchByDateOptions, getDigimons } from './actions'
+import { Options } from './Options';
+
 class Select extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.get = this.props.getSearchByDateOptions()
   }
+
+  componentDidMount() {
+    const { getSearchByDateOptions, getDigimons } = this.props;
+    getSearchByDateOptions()
+    getDigimons()
+  }
+
   render() {
     const {
-      items
+      items,
+      digimons
     } = this.props
-    console.log(this.props)
-    
+    console.log(digimons)
+
     return (
       <>
         <select name="cars" id="cars">
-          {items.map(item =>(<option key={item} value={item}>{item}</option>))}
+          {items.map(item => (<Options key={item} item={item} />))}
         </select>
         <br />
         <input type="submit" value="Submit" />
@@ -25,8 +34,9 @@ class Select extends Component {
   }
 }
 const mapStateToProps = store => ({
-  items: store.itemsMenuState.itemsMenu
+  items: store.itemsMenuState.itemsMenu,
+  digimons: store.itemsMenuState.digimons
 })
-const mapDispatchToProps = dispatch => 
-  bindActionCreators({ getSearchByDateOptions }, dispatch)
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ getSearchByDateOptions, getDigimons }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Select)

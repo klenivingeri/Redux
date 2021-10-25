@@ -5,7 +5,6 @@ const initialState ={
 };
 
 export const digimonReducer = (state = initialState, action) => {
-  console.log(action.digimons)
   switch(action.type){
     case GET_DIGIMON:
       return {

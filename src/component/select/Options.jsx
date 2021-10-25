@@ -1,0 +1,1 @@
+export const Options = ({ item }) => (<option value={item}>{item}</option>)

@@ -1,17 +1,22 @@
-import { SELECT_ITEMS } from './constants'
+import { SELECT_ITEMS, DIGIMONS } from './constants'
 
-const initialState = {
-  itemsMenu: []
+export const initialState = {
+  itemsMenu: [],
 }
 
-export const getItemsMenuReducer = (state = initialState, action ) => {
-  switch(action.type){
+export const getItemsMenuReducer = (state = initialState, action) => {
+  switch (action.type) {
     case SELECT_ITEMS:
       return {
         ...state,
-        itemsMenu: action.itemsMenu
+        itemsMenu: action.payload
       }
-      default:
-        return state;
+    case DIGIMONS:
+      return {
+        ...state,
+        digimons: action.payload
+      }
+    default:
+      return state;
   }
 }
